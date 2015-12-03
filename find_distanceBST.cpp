@@ -26,26 +26,52 @@ TreeNode* put(TreeNode*p, int target) {
 }
 
 int get_distance(TreeNode* root, int key1, int key2) {
-	vector<TreeNode*> vec1,vec2;
-	function<bool(vector<TreeNode*> &,TreeNode*,int key)> dfs=[&] (vector<TreeNode*> &vec,TreeNode* t, int key) {
-		if (!t) return false;
-		vec.push_back(t);
-		if (t->val==key) {return true;}
-		if ( dfs(vec,t->left,key) ||  dfs(vec,t->right,key)) return true;
-		vec.pop_back();
-		return false;
+	int dist=INT_MAX, level1=-1, level2=-1;
+	function <TreeNode*(TreeNode*,int)> findLCA=[&](TreeNode* cur, int curlevel)->TreeNode* {
+		if (!cur) return NULL;
+		TreeNode *pleft=findLCA(cur->left,curlevel+1);
+		TreeNode *pright=findLCA(cur->right,curlevel+1);
+		if (pleft && pright) {
+			dist=min(dist,level1+level2-2*curlevel);
+			return cur;
+		} 
+		if (cur->val==key1){
+			level1=curlevel;
+			if (pleft || pright) dist=level2-level1;
+			return cur;
+		} else if (cur->val==key2) {
+			level2=curlevel;
+			if (pleft || pright) dist=level1-level2;
+			return cur;
+		}
+		return pleft?pleft:pright;
 	};
-	dfs(vec1,root,key1);
-	dfs(vec2,root,key2);
-	int p=0; 
-	for (;p<vec1.size() && p<vec2.size() && vec1[p]->val==vec2[p]->val;++p){}
-	return vec1.size()+vec2.size()-2*p;
+	findLCA(root,0);
+	return dist;
 }
+
+
+// int get_distance(TreeNode* root, int key1, int key2) {
+// 	vector<TreeNode*> vec1,vec2;
+// 	function<bool(vector<TreeNode*> &,TreeNode*,int key)> dfs=[&] (vector<TreeNode*> &vec,TreeNode* t, int key) {
+// 		if (!t) return false;
+// 		vec.push_back(t);
+// 		if (t->val==key) {return true;}
+// 		if ( dfs(vec,t->left,key) ||  dfs(vec,t->right,key)) return true;
+// 		vec.pop_back();
+// 		return false;
+// 	};
+// 	dfs(vec1,root,key1);
+// 	dfs(vec2,root,key2);
+// 	int p=0;
+// 	for (;p<vec1.size() && p<vec2.size() && vec1[p]->val==vec2[p]->val;++p){}
+// 	return vec1.size()+vec2.size()-2*p;
+// }
 	
 int main() {
 	TreeNode*p {NULL};
-	int A[]={2,8,4,3};
+	int A[]={2,8,4,3,9};
 	for (int i=0;i<sizeof(A)/sizeof(int);i++) 
 		p=put(p,A[i]);
-	cout<<get_distance(p,8,3);
+	cout<<get_distance(p,9,3);
 }

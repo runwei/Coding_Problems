@@ -41,7 +41,6 @@ int coins_in_line(const vector<int> &arr){
 	return f[0][n-1];
 }
 	
-	
 int main() {
 	vector<int> arr {8,15,3,7};
 	cout<<coins_in_line(arr);

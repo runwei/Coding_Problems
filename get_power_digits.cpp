@@ -43,14 +43,10 @@ string get_power_digits(int m, long long n, int k) {
 	string tmps=to_string(m);
 	reverse(tmps.begin(),tmps.end());
 	tmps.append(k-tmps.size(),'0');
-	vector<int> bn;
-	while (n>0) {
-		bn.push_back(n %2);
-		n/=2;
-	}
 	string ret(k,'0');ret[0]='1';
-	for (int i=0;i<bn.size();i++) {
-		if (bn[i]) ret=multiply(ret,tmps,k);
+	while (n>0) {
+		if (n%2) ret=multiply(ret,tmps,k);
+		n/=2;
 		tmps=multiply(tmps,tmps,k);
 	}
 	reverse(ret.begin(),ret.end());

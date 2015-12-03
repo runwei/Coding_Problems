@@ -1,3 +1,22 @@
+/*
+'.' Matches any single character.
+'*' Matches zero or more of the preceding element.
+
+The matching should cover the entire input string (not partial).
+
+The function prototype should be:
+bool isMatch(const char *s, const char *p)
+
+Some examples:
+isMatch("aa","a") → false
+isMatch("aa","aa") → true
+isMatch("aaa","aa") → false
+isMatch("aa", "a*") → true
+isMatch("aa", ".*") → true
+isMatch("ab", ".*") → true
+isMatch("aab", "c*a*b") → true
+*/
+
 #include<vector>
 #include<string.h>
 #include <stdio.h>
@@ -16,7 +35,7 @@ bool isMatch(const char *s, const char *p) {
         if (j==n) {f[i][j]=i==m?1:0;return f[i][j];}
         else if (p[j+1]!='*') {
             if ((s[i]==p[j]) || (p[j]=='.' && i!=m)) return dfs(i+1,j+1);
-            else {f[i][j]=-1;return -1;}
+            else {f[i][j]=-1;return 0;}
         } else {
             int k=i;
             while (s[k]==p[j] || (p[j]=='.' && k!=m)) {
@@ -32,6 +51,6 @@ bool isMatch(const char *s, const char *p) {
 
 
 int main() {
-	cout<<isMatch("aa","aa")<<endl;
+	cout<<isMatch("aa","aaa")<<endl;
 	return 0;
 }

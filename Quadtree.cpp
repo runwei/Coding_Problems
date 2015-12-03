@@ -1,3 +1,32 @@
+/*
+Given a quadtree structure:
+1
+2
+3
+4
+5
+struct QuadNode {
+    QuadNode(int num_ones = 0) : ones(num_ones) {}
+    int ones{ 0 };
+    QuadNode* child[4]{ nullptr };
+};
+Please build a quadtree to represent a 0-1 matrix, assume the matrix is a square and the dimension is power of 2.
+Given two such quadtrees with same depth, please write a function to calculate how many 1s are overlapped.
+For example:
+1
+2
+3
+4
+5
+6
+7
+Matrix 0:
+0 1
+1 1
+Matrix 1:
+0 0
+1 1
+*/
 #include<vector>
 #include<iostream>
 #include<algorithm>

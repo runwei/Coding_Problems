@@ -1,5 +1,6 @@
 /*
-写一个程序，找出 5^1234566789893943的从底位开始的1000位数字。
+Given a binary search tree (BST), find the lowest common ancestor of two given nodes in the BST.
+A top-down walk from the root of the tree is enough.
 */
 #include<vector>
 #include<string.h>
@@ -56,7 +57,7 @@ int main() {
 	n2.right=&n3;
 	n6.left=&n5;
 	n6.right=&n7;
-	TreeNode *ret=LCA_BST(&n4,&n1,&n3);
+	TreeNode *ret=LCA_BST(&n4,&n1,&n2);
 	cout<<ret->val;
 	return 0;
 }

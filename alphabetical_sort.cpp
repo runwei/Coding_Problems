@@ -28,9 +28,9 @@ void alphabetical_sort(vector<string>& strs,const string&s) {
 		while (p1<s1.size() && p2<s2.size()){
 			if (m_map[s1[p1]]<m_map[s2[p2]]) return true;
 			else if (m_map[s1[p1]]>m_map[s2[p2]]) return false;
-			else ++p1;++p2;
+			else {++p1;++p2;}
 		}
-		return p1<p2;
+		return p1==s1.size();
 	};
 	sort(strs.begin(),strs.end(),f);
 }

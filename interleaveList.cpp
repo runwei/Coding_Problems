@@ -1,5 +1,10 @@
 /*
-写一个程序，找出 5^1234566789893943的从底位开始的1000位数字。
+Interleave two linked-list
+for example
+Given
+1->2->3->4
+5->6
+return 1->5->2->6->3->4
 */
 #include<vector>
 #include<string.h>

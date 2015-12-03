@@ -1,13 +1,9 @@
 /*
-Given a set of n jobs with [start time, end time, cost] find a subset so that no 2 jobs overlap and the cost is maximum.
-DP+二分:
-Sort the intervals based on end time
-define p(i) for each interval, giving the biggest end point which is smaller than the start point of i-th interval. Use binary search to obtain nlogn
-define d[i] = max(w(i) + d[p(i)], d[i-1]).
-
-initialize d[0] = 0
-The result will be in d[n] n- the number of intervals.
-Overall complexity O(nlogn)
+Read a positive integer like:
+1 -> one
+101 -> one hundred and one
+500234 -> five hundred thousand two hundred and thirty four
+The number will be less than 100,0000
 */
 #include<vector>
 #include<string.h>

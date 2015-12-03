@@ -1,5 +1,12 @@
 /*
-写一个程序，找出 5^1234566789893943的从底位开始的1000位数字。
+Write a function that takes the following inputs and gives the following outputs.
+
+Input: A list of points in 2-dimensional space, and an integer k
+Output: The k input points closest to (5, 5), using Euclidean distance
+
+Example:
+Input: {(-2, -4), (0, 0), (10, 15), (5, 6), (7, 8), (-10, -30)}, k = 2
+Output: {(5, 6), (7, 8)}
 */
 #include<vector>
 #include<string.h>

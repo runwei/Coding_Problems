@@ -15,16 +15,16 @@ Concatenation of all natural numbers looks like:
 using namespace std;
 
 int findnthdigit(int n) {
-	int numdigits=1,maxdigits=9,sumdigits=0;
-	while (n>=maxdigits*numdigits){
-		n-=maxdigits*numdigits;
-		++numdigits;
-		sumdigits+=maxdigits;
-		maxdigits*=10;
+	int bitnum=1,roundnum=9,totalnum=0;
+	while (n>roundnum*bitnum){
+		n-=roundnum*bitnum;
+		++bitnum;
+		totalnum+=roundnum;
+		roundnum*=10;
 	}
-	int ind=(n-1)/numdigits,res=(n-1) % numdigits;
-	int value=ind+sumdigits+1;
-	for (int k=0;k<numdigits-1-res;++k) value/=10;
+	int ind=(n-1)/bitnum,res=(n-1) % bitnum;
+	int value=ind+totalnum+1;
+	for (int k=0;k<bitnum-1-res;++k) value/=10;
 	return value %10;
 }
 	
@@ -32,6 +32,5 @@ int main() {
 	// cout<<findnthdigit(14);
 	for (int i=10;i<16;++i)
 	cout<<findnthdigit(i)<<endl;
-	
 	return 0;
 }

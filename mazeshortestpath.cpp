@@ -1,5 +1,5 @@
 /*
-写一个程序，找出 5^1234566789893943的从底位开始的1000位数字。
+find the shortest path in maze
 */
 #include<vector>
 #include<string.h>

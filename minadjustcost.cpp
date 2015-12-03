@@ -1,5 +1,13 @@
 /*
-写一个程序，找出 5^1234566789893943的从底位开始的1000位数字。
+Given an integer array, adjust each integers so that the difference of every adjcent integers are not greater than a given number target.
+If the array before adjustment is A, the array after adjustment is B, you should minimize the sum of |A[i]-B[i]|
+Note:
+You can assume each number in the array is a positive integer and not greater than 100
+Example:
+Given [1,4,2,3] and target=1, one of the solutions is [2,3,2,3], the adjustment cost is 2 and it’s minimal. Return 2.
+此题可以用记忆化搜索也可以用DP。
+记忆化搜索用的Memory矩阵含义为
+M[i][j]：从index = i处开始往后所有的differ，并且A[i]的取值取为j + 1;
 */
 #include<vector>
 #include<string.h>

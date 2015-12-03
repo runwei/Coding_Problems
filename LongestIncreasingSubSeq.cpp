@@ -1,13 +1,6 @@
 /*
-Given a set of n jobs with [start time, end time, cost] find a subset so that no 2 jobs overlap and the cost is maximum.
-DP+二分:
-Sort the intervals based on end time
-define p(i) for each interval, giving the biggest end point which is smaller than the start point of i-th interval. Use binary search to obtain nlogn
-define d[i] = max(w(i) + d[p(i)], d[i-1]).
-
-initialize d[0] = 0
-The result will be in d[n] n- the number of intervals.
-Overall complexity O(nlogn)
+The longest Increasing Subsequence (LIS) problem is to find the length of the longest subsequence of a given sequence such that all elements of the subsequence are sorted in increasing order.
+For example, length of LIS for { 10, 22, 9, 33, 21, 50, 41, 60, 80 } is 6 and LIS is {10, 22, 33, 50, 60, 80}.
 */
 #include<vector>
 #include<string.h>

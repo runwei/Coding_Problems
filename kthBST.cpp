@@ -1,4 +1,7 @@
-/*http://www.fgdsb.com/2015/01/19/sums-of-all-subtrees/*/
+/*
+找BST中第k小的节点。
+G家考过很多次，其他公司的面经里也经常出现。递归解法很简单O(N)。
+*/
 #include<vector>
 #include<iostream>
 #include<algorithm>

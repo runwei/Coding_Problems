@@ -22,8 +22,8 @@ using namespace std;
 double calculatey(string str,int xval){
 	function<void(string,vector<double> &)> f=[&](string s, vector<double>& vec) {
 		stack<int> m_stack;
-		int bracketop=1, lastop=1,pos=0;
-		for (;pos<=s.size();++pos) {
+		int bracketop=1, lastop=1;
+		for (int pos=0;pos<=s.size();++pos) {
 			if (s[pos]<='9' && s[pos]>='0') {
 				int endpos=pos;
 				while (s[endpos]<='9' && s[endpos]>='0') ++endpos;

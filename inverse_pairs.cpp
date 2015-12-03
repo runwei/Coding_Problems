@@ -1,3 +1,11 @@
+/*
+Given an integer array, return the number of all inverse pairs.
+For example:
+{7, 5, 6, 4}
+There are five inverse pairs in total:
+(7,6), (7,5), (7,4), (6,4), (5,4)
+The result should be 5.
+*/
 #include<vector>
 #include<iostream>
 #include<algorithm>

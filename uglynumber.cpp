@@ -1,13 +1,10 @@
 /*
-Given a set of n jobs with [start time, end time, cost] find a subset so that no 2 jobs overlap and the cost is maximum.
-DP+二分:
-Sort the intervals based on end time
-define p(i) for each interval, giving the biggest end point which is smaller than the start point of i-th interval. Use binary search to obtain nlogn
-define d[i] = max(w(i) + d[p(i)], d[i-1]).
+Ugly numbers are numbers whose only prime factors are 2, 3 or 5. The sequence
+1, 2, 3, 4, 5, 6, 8, 9, 10, 12, 15, …
+shows the first 11 ugly numbers. By convention, 1 is included.
+Write a program to find and print the 150’th ugly number.
 
-initialize d[0] = 0
-The result will be in d[n] n- the number of intervals.
-Overall complexity O(nlogn)
+http://www.geeksforgeeks.org/ugly-numbers/
 */
 #include<vector>
 #include<string.h>

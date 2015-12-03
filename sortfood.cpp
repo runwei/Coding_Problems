@@ -1,13 +1,20 @@
 /*
-Given a set of n jobs with [start time, end time, cost] find a subset so that no 2 jobs overlap and the cost is maximum.
-DP+二分:
-Sort the intervals based on end time
-define p(i) for each interval, giving the biggest end point which is smaller than the start point of i-th interval. Use binary search to obtain nlogn
-define d[i] = max(w(i) + d[p(i)], d[i-1]).
+输入一个字符串，它包含的是『食物-重量』对。解析之，按食物重量降序排序输出List. (重量一致可放在一起）
+特别情况：
 
-initialize d[0] = 0
-The result will be in d[n] n- the number of intervals.
-Overall complexity O(nlogn)
+当食物后面跟的也是食物，表明前面的食物是默认重量，比如5.
+在例子1中：crab后面直接跟了hotdog，那么crab的重量是5
+在例子4中，2.0表示的是食物，这个食物的名字就叫2.0 因为它前面已经完成了
+一个食物-重量对（pizza, 500），但是当数字直接出现在食物后，它就一定是重量，
+比如例子2，3中的1，500都是重量。
+注意：输入字符串前后可能有若干冗余空格，食物/重量之间也可能有冗余空格，请忽略所有冗余空格。
+
+4个例子（默认重量 = 5）：
+
+sort_food("crab hotdog  9.0 chicken 9.2", 5);
+sort_food("  pizza  1 hotdog 2.0", 5);
+sort_food("pizza 500 hotdog 2.0 ", 5);
+sort_food(" pizza  500 2.0 ", 5);
 */
 #include<vector>
 #include<string.h>

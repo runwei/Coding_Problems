@@ -1,13 +1,12 @@
 /*
-Given a set of n jobs with [start time, end time, cost] find a subset so that no 2 jobs overlap and the cost is maximum.
-DP+二分:
-Sort the intervals based on end time
-define p(i) for each interval, giving the biggest end point which is smaller than the start point of i-th interval. Use binary search to obtain nlogn
-define d[i] = max(w(i) + d[p(i)], d[i-1]).
+Given an unsorted array arr[] and two numbers x and y, find the minimum distance between x and y in arr[]. The array might also contain duplicates. You may assume that both x and y are different and present in arr[].
 
-initialize d[0] = 0
-The result will be in d[n] n- the number of intervals.
-Overall complexity O(nlogn)
+Examples:
+Input: arr[] = {1, 2}, x = 1, y = 2
+Output: 1.
+
+Input: arr[] = {2, 5, 3, 5, 4, 4, 2, 3}, x = 3, y = 2
+Output: 1.
 */
 #include<vector>
 #include<string.h>
@@ -17,7 +16,6 @@ Overall complexity O(nlogn)
 #include<map>
 #include<unordered_map>
 #include<unordered_set>
-
 #include<set>
 #include<mutex>
 #include<thread>

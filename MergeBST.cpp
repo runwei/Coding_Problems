@@ -34,17 +34,21 @@ TreeNode* mergeBST(TreeNode* root1, TreeNode* root2) {
 
 TreeNode* flattenBST(TreeNode*root) {
 	if (!root) return NULL;
-	root->right=flattenBST(root->right);
-	if (!root->left) {
+	TreeNode *pleft=NULL, *pright=NULL;
+	if (root->left) pleft=flattenBST(root->left);
+	if (root->right) pright=flattenBST(root->right);
+	if (!pleft) {
+		root->left=NULL;
+		root->right=pright;
 		return root;
 	} else {
-		TreeNode* p1=flattenBST(root->left);
-		TreeNode* p2=p1;
-		while (p2->right) p2=p2->right;
-		p2->right=root;
+		TreeNode *p=pleft;
+		while (p->right) p=p->right;
+		p->right=root;
 		root->left=NULL;
-		return p1;
-	}
+		root->right=pright;
+		return pleft;
+	}	
 }
 
 TreeNode* mergeList(TreeNode *root1, TreeNode *root2) {

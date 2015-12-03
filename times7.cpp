@@ -25,6 +25,7 @@ int add(int a,int b) {
 	int sum;
 	while (b) {
 		sum=a^b;
+		//carry
 		b=(a&b)<<1;
 		a=sum;
 	}

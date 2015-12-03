@@ -16,10 +16,7 @@ For example, “abc”, “abg”, “bdf”, “aeg”, ‘”acefg”, .. etc 
 #include "leetcode.h"
 using namespace std;
 
-string LongestCommonSubsequence(const string &s1, const string &s2) {
-	
-
-	
+string LongestCommonSubsequence(const string &s1, const string &s2) {	
 	int m=s1.size(),n=s2.size();
 	vector<vector<int> >f(m+1,vector<int> (n+1,0));
 	for (int i=1;i<=m;i++)
@@ -33,7 +30,7 @@ string LongestCommonSubsequence(const string &s1, const string &s2) {
 		else if (s1[i-1]==s2[j-1]) {
 			ret.push_back(s1[i-1]);
 			backtrack(i-1,j-1);
-		} 
+		}
 		else if (f[i-1][j]>f[i][j-1]) backtrack(i-1,j);
 		else backtrack(i,j-1);
 	};

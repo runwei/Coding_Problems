@@ -23,8 +23,8 @@ int findksmallest(vector<int> &arr,int k) {
 			if (arr[k]<arr[j]) swap(arr[k],arr[ind++]);
 		}
 		swap(arr[j],arr[ind++]);
-		if (ind-i<k) return findhelper(ind,j,k-(ind-i));
-		else if (ind-i>k) return findhelper(i,ind-2,k);
+		if (ind-i<m) return findhelper(ind,j,m-(ind-i));
+		else if (ind-i>m) return findhelper(i,ind-2,m);
 		else return arr[ind-1];
 	};
 	return findhelper(0,n-1,k);
@@ -42,17 +42,19 @@ int main() {
 	srand(time(NULL));
 	vector<int> arr(n,0);
 	for (int k=0;k<n;k++) arr[k]=k+1;
-	vector<int> sumval(n,0);
-	for (int i=1;i<=1000000;i++) {
-		knuthshuffle(arr);
-		for (int k=0;k<n;k++) {
-			sumval[k]+=arr[k];
-		}
-	}
-	for (int k=0;k<n;k++) cout<<sumval[k]<<" ";
+	knuthshuffle(arr);
+	// vector<int> sumval(n,0);
+	// for (int i=1;i<=1000000;i++) {
+	// 	knuthshuffle(arr);
+	// 	for (int k=0;k<n;k++) {
+	// 		sumval[k]+=arr[k];
+	// 	}
+	// }
+	// for (int k=0;k<n;k++) cout<<sumval[k]<<" ";
 		
-	// for (int i=1;i<=n;i++)
-	// cout<<findksmallest(arr,i)<<endl;
+	for (int i=1;i<=n;i++) cout<<arr[i-1]<<" ";
+	cout<<endl;
+	for (int i=1;i<=n;i++) cout<<findksmallest(arr,i)<<" ";
 	
 	return 0;
 }

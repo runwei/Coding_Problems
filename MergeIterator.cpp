@@ -1,6 +1,9 @@
 /*
-检查一个字符串是否包含k位a进制数的所有表示形式。
-保证原字符串的所有字串都是合法的k位a进制数。"00110", a=2, k=2 => true （包括了00，01，10，11）
+输入为一个Iterator数组，这些Iterator分别取出来的数都是已排序的，设计并实现一个MergeIterator类，merge这些sorted iterator。
+你的MergeIterator类需要包含has_next和get_next方法。
+注意，Iterator也只包含has_next和get_next方法。
+G家的onsite题，实际上就是多路归并，用一个heap就可以搞定，注意类的细节设计即可。
+看过一个面经，面试者跟面试官说Iterator的接口需要有个peek()函数（即只看，不move），实际上是可以不需要的。
 */
 
 

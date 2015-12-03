@@ -21,7 +21,6 @@
 #include<thread>
 #include<condition_variable>
 
-
 #include<queue>
 #include<list>
 #include<limits.h>
@@ -58,7 +57,8 @@ vector<vector<int> > policeandroom(const vector<vector<int> >&arr) {
 				}
 			}
 		}
-		swap(q,new_q);++dist;
+		swap(q,new_q);
+		++dist;
 	}
 	return ret;
 }

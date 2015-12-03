@@ -27,10 +27,8 @@ opt[i][j] = max{ opt[i+1][j], opt[i-1][j], opt[i][j+1], opt[i][j-1] } +１
 using namespace std;
 int longestSeqinMatrix(const vector<vector<int> > &arr) {
 	if (arr.empty() || arr[0].empty()) return -1;
-	int m=arr.size();
-	int n=arr[0].size();
+	int m=arr.size(), n=arr[0].size();
 	vector<vector<int> > mem(m,vector<int> (n,-1));
-	int maxnum=0;
 	int dirs[4][2] {{0,1},{0,-1},{1,0},{-1,0}};
 	function<int(int i,int j)> dfs=[&] (int i,int j) {
 		if (mem[i][j]!=-1) return mem[i][j];
@@ -41,18 +39,18 @@ int longestSeqinMatrix(const vector<vector<int> > &arr) {
 					mem[i][j]=max(mem[i][j],dfs(tmpi,tmpj)+1);
 				}
 			}
-			return mem[i][j];
+			return max(mem[i][j],1);
 		}
 	};
+	int maxnum=0;
 	for(int i=0;i<m;i++)
 		for(int j=0;j<n;j++)
 			maxnum=max(dfs(i,j),maxnum);
 	return maxnum;
-			
 }
 	
 int main() {
-	vector<vector<int> > arr {{3,2,3,4},{8,7,6,5},{9,2,3,5}};
+	vector<vector<int> > arr {{3,2,3,4},{8,8,6,5},{9,2,3,5}};
 	cout<<longestSeqinMatrix(arr);
 	return 0;
 }
